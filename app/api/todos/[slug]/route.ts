@@ -20,7 +20,7 @@ export async function GET(
   return NextResponse.json(response, { status: 200 });
 }
 
-//할일 단일삭제 ID로
+//할일 단일삭제 ID로 삭제
 export async function DELETE(
   request: NextRequest,
   { params }: { params: { slug: string } }
