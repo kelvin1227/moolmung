@@ -36,3 +36,24 @@ export async function DELETE(
 
   return NextResponse.json(response, { status: 200 });
 }
+
+//할일 단일수정 ID
+export async function POST(
+  request: NextRequest,
+  { params }: { params: { slug: string } }
+) {
+  const { title, is_done } = await request.json();
+
+  const editTodo = {
+    id: params.slug,
+    title: title,
+    is_done,
+  };
+
+  const response = {
+    massage: "단일 할일 수정 성공",
+    data: editTodo,
+  };
+
+  return NextResponse.json(response, { status: 200 });
+}
